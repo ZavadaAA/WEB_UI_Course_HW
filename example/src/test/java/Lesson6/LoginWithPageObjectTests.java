@@ -1,5 +1,6 @@
 package Lesson6;
 
+import io.qameta.allure.Feature;
 import Lesson6.pages.CreateExpenseRequestPage;
 import Lesson6.pages.ExpenseRequestsPage;
 import Lesson6.pages.ExpensesSubMenu;
@@ -10,9 +11,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static Lesson6.Configuration.BASE_URL;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.yandex.qatools.htmlelements.matchers.WebElementMatchers.isDisplayed;
 
+@Feature("Тестирование создания заявки на расход")
 public class LoginWithPageObjectTests extends BaseTest {
 
     @BeforeEach
@@ -55,7 +57,7 @@ public class LoginWithPageObjectTests extends BaseTest {
                 ExpectedConditions.presenceOfElementLocated(
                         By.xpath(new CreateExpenseRequestPage(driver).requestSuccessLocator)));
 
-        assertThat(new CreateExpenseRequestPage(driver).requestSuccess, isDisplayed());
+        assertThat(new CreateExpenseRequestPage(driver).requestSuccess.isDisplayed(), equalTo(true));
     }
 
 }

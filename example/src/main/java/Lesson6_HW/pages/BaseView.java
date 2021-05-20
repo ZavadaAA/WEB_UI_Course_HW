@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseView {
     public WebDriver driver;
-    WebDriverWait webDriverWait;
+    public WebDriverWait webDriverWait;
 
     public BaseView(WebDriver driver) {
         this.driver = driver;
